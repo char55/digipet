@@ -1,0 +1,9 @@
+{
+  "name": "digipet",
+  "version": "1.0.0",
+  "description": "virtual mini pet game",
+  "main": "index.js",
+  "repository": "https://github.com/char55/digipet.git",
+  "author": "char55 <haras.charlotte@gmail.com>",
+  "license": "MIT"
+}
