@@ -1,0 +1,2 @@
+# digipet
+tamagotchi mimic
