@@ -1,11 +1,12 @@
+var canvas = document.getElementById("myCanvas");
+var ctx = canvas.getContext("2d");
+
 class Pet {
   constructor() {
-    this.age = 0;
     this.happy = 0;
     this.hunger = 2;
-    this.training = 0;
-    this.health = 0;
-    this.toilet = 1;
+
+    this.livePet()
   }
 
   gotAttention() {
@@ -14,13 +15,17 @@ class Pet {
   getFed() {
     this.happy++;
     this.hunger++;
-    this.toilet++;
   }
   isHungry() {
     return this.hunger < 5;
   }
+
+  livePet( ) {
+
+  }
 }
 
+const pet = new Pet()
 // new egg has hatched
 // main game play would take in user input
 // idle for some time but also reacting without prompt

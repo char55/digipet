@@ -1,0 +1,49 @@
+* {
+    padding: 0;
+    margin: 0;
+  }
+canvas {
+    background: lightblue;
+    display: block;
+    margin: 0 auto;
+  }
+
+
+
+body {
+  text-align: center;
+  font-family: Arial;
+  background-color: #ececec;
+}
+
+* {
+  font-family: Arial;
+  color: grey;
+}
+
+
+
+table,
+tr,
+td {
+  border: silver 1px dotted;
+}
+
+.pixel-canvas {
+  background-color : white;
+}
+
+/* 'border-collapse' CSS property specifies whether a table's cells have shared or separate borders; 'collapse' value causes cells to have shared borders */
+table {
+  border-collapse: collapse;
+}
+
+tr {
+  height: 50px;
+}
+
+td {
+  min-width: 50px;
+  box-sizing: border-box;
+}
+
