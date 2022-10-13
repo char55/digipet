@@ -1,31 +1,87 @@
-var canvas = document.getElementById("myCanvas");
-var ctx = canvas.getContext("2d");
+import { getPattern, setForm, getForm, makeDigiPet } from './src/drawDigipet.js'
+import { DIGI_FORM, DELAY_IN_SECONDS } from './const.js'
+var index = 0
+var eggLove = 4
+var babyFilth = 3
 
-class Pet {
-  constructor() {
-    this.happy = 0;
-    this.hunger = 2;
+const buttonPet = document.querySelector('.button-pet')
+const buttonFeed = document.querySelector('.button-feed')
+const buttonClean = document.querySelector('.button-clean')
 
-    this.livePet()
+const disableButtons = bool => {
+  buttonClean.disabled = bool
+  buttonFeed.disabled = bool
+  buttonPet.disabled = bool
+}
+
+buttonPet.onclick = () => {
+  console.log('petDigipet')
+  disableButtons(true)
+  if (getForm() !== DIGI_FORM.DIRTY_BABY) {
+    setForm(DIGI_FORM.HAPPY_BABY)
+
+    setTimeout(() => {
+      setForm(DIGI_FORM.BABY)
+      disableButtons(false)
+    }, 5 * 1000)
   }
+  disableButtons(false)
+}
 
-  gotAttention() {
-    this.happy++;
-  }
-  getFed() {
-    this.happy++;
-    this.hunger++;
-  }
-  isHungry() {
-    return this.hunger < 5;
-  }
+buttonClean.onclick = () => {
+  console.log('clean')
+  disableButtons(true)
+  if (getForm() === DIGI_FORM.DIRTY_BABY) {
+    setForm(DIGI_FORM.HAPPY_BABY)
 
-  livePet( ) {
-
+    setTimeout(() => {
+      setForm(DIGI_FORM.BABY)
+      disableButtons(false)
+    }, 5 * 1000)
   }
 }
 
-const pet = new Pet()
-// new egg has hatched
-// main game play would take in user input
-// idle for some time but also reacting without prompt
+buttonFeed.onclick = () => {
+  console.log('feed')
+  disableButtons(true)
+  babyFilth++
+  setForm(DIGI_FORM.FED_BABY)
+
+  if (babyFilth > 3) {
+    setTimeout(() => {
+      setForm(DIGI_FORM.DIRTY_BABY)
+      disableButtons(false)
+    }, 5 * 1000)
+  } else {
+    setTimeout(() => {
+      setForm(DIGI_FORM.HAPPY_BABY)
+      setTimeout(() => {
+        setForm(DIGI_FORM.BABY)
+        disableButtons(false)
+      }, 5 * 1000)
+    }, 5 * 1000)
+  }
+}
+
+document.body.onclick = function () {
+  var form = getForm()
+  if (form === DIGI_FORM.EGG && eggLove < 5) {
+    eggLove++
+    disableButtons(true)
+  } else if (form === DIGI_FORM.EGG && eggLove >= 5) {
+    // hatch!
+    setForm(DIGI_FORM.BABY)
+    disableButtons(false)
+  }
+  // add heart motif
+}
+
+setInterval(() => {
+  const digiPattern = getPattern()
+  makeDigiPet(digiPattern[index])
+  index++
+  // index = index === totalPatterns ? 0 : index+1
+  if (index >= digiPattern.length) {
+    index = 0
+  }
+}, DELAY_IN_SECONDS * 60)
