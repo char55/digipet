@@ -34,6 +34,24 @@ const eggSquish = [
   [3, 4, 5, 6, 7]
 ]
 
+const eggSquish_heart = [
+  [],
+  [],
+  [15, 16, 18, 19],
+  [15, 16, 17, 18, 19],
+  [16, 17, 18],
+  [9, 17],
+  [],
+  [10],
+  [3, 4, 5, 6, 7],
+  [2, 3, 7, 8],
+  [2, 8, 5],
+  [2, 8, 6],
+  [2, 8],
+  [2, 3, 7, 8],
+  [3, 4, 5, 6, 7]
+]
+
 const baby1 = [
   [],
   [],
@@ -263,6 +281,7 @@ const BABY_PATTERN = [
 
 const DIGI_PATTERN = {
   EGG: [egg, egg, eggSquish],
+  HAPPY_EGG: [egg, eggSquish_heart, eggSquish, eggSquish_heart],
   BABY: [baby1, baby1, baby2, baby2],
   FED_BABY: [
     baby1_eats,

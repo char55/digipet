@@ -1,5 +1,6 @@
 const DIGI_FORM = {
   EGG: 'egg',
+  HAPPY_EGG: 'happy_egg',
   BABY: 'baby',
   FED_BABY: 'baby_eats',
   DIRTY_BABY: 'baby_filth',
