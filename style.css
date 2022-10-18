@@ -1,14 +1,12 @@
 * {
-    padding: 0;
-    margin: 0;
-  }
+  padding: 0;
+  margin: 0;
+}
 canvas {
-    background: lightblue;
-    display: block;
-    margin: 0 auto;
-  }
-
-
+  background: lightblue;
+  display: block;
+  margin: 0 auto;
+}
 
 body {
   text-align: center;
@@ -21,8 +19,6 @@ body {
   color: grey;
 }
 
-
-
 table,
 tr,
 td {
@@ -30,7 +26,7 @@ td {
 }
 
 .pixel-canvas {
-  background-color : white;
+  background-color: white;
 }
 
 /* 'border-collapse' CSS property specifies whether a table's cells have shared or separate borders; 'collapse' value causes cells to have shared borders */
@@ -47,3 +43,24 @@ td {
   box-sizing: border-box;
 }
 
+button {
+  border: 1px solid #0099cc;
+  background-color: #00aacc;
+  color: #ffffff;
+  padding: 5px 10px;
+  width: 100px;
+  height: 50px;
+  font-size: 25px;
+  padding: 5px 10px;
+}
+
+button[disabled='disabled'],
+button:disabled {
+  border: 1px solid #999999;
+  background-color: #cccccc;
+  color: #666666;
+  width: 100px;
+  height: 50px;
+  font-size: 25px;
+  padding: 5px 10px;
+}

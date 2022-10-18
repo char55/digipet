@@ -3,7 +3,7 @@ import { DIGI_FORM } from '../const.js'
 
 const pixelCanvas = document.querySelector('.pixel-canvas')
 // var form = DIGI_FORM.EGG // make into const
-var form = DIGI_FORM.DIRTY_BABY
+var form = DIGI_FORM.EGG
 function makeDigiPet(digiPattern) {
   let gridHeight = 15
   let gridWidth = 20
@@ -29,11 +29,14 @@ const setForm = newForm => {
   form = newForm
   return
 }
-const getForm = () => form
+const getForm = () => form || DIGI_FORM.BABY
 
-const getPattern = () => {
+const getPattern = form => {
   if (form == DIGI_FORM.EGG) {
     return DIGI_PATTERN.EGG
+  }
+  if (form == DIGI_FORM.HAPPY_EGG) {
+    return DIGI_PATTERN.HAPPY_EGG
   }
   if (form === DIGI_FORM.BABY) {
     return DIGI_PATTERN.BABY
